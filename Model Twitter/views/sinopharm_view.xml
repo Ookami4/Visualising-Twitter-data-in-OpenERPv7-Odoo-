@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<menuitem id="bar" name="Twitter"/>
+		<record id="twitter_sinopharm_form_view" model="ir.ui.view">
+            <field name="name">twitter.sinopharm.form</field>
+            <field name="model">twitter.sinopharm</field>
+			<field name="arch" type="xml">
+				<form string="sinopharm" version="7.0">
+					<sheet>
+						<notebook>
+							<page string="sinopharm Details">
+								<group>
+									<field name="tweet"/>
+									<field name="polarite"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="twitter.sinopharm_tree">
+			<field name="name">twitter.sinopharm.tree</field>
+			<field name="model">twitter.sinopharm</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="sinopharm list">
+					<field name="tweet"/>
+				    <field name="polarite"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="twitter_sinostatistic_graph" model="ir.ui.view">
+			<field name="name">twitter.sinostatistic.graph</field>
+			<field name="model">twitter.sinostatistic</field>
+			<field name="arch" type="xml">
+				<graph string="Statistiques" type="bar">
+					<field name="name" />
+					<field name="effective" operator="+"/>
+				</graph>
+			</field>
+		</record>
+        <record model="ir.actions.act_window" id="action_sinopharm_seq">
+			<field name="name">Data</field>
+			<field name="res_model">twitter.sinopharm</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+        <record model="ir.actions.act_window" id="action_sinopharm_stat_seq">
+			<field name="name">Data</field>
+			<field name="res_model">twitter.sinostatistic</field>
+			<field name="view_mode">graph</field>
+		</record>
+        <menuitem name="Sinopharm" id="sino" parent="bar"/>
+        <menuitem name="Data" id="sinodata" parent="sino" action="action_sinopharm_seq"/>
+        <menuitem name="Statistics" id="sinostatistic" parent="sino" action="action_sinopharm_stat_seq"/>
+	</data>
+</openerp>

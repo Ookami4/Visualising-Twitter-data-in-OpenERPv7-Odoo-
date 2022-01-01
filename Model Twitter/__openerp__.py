@@ -1,0 +1,32 @@
+{
+    'name':'Twitter Scrapper',
+    'version':'1.0',
+    'author':'Hakim Mariame Redouan',
+    'category':'ENSAH ERP',
+    'sequence':1,
+    'description':"Scrapping Twitter Data using Twitter API and Python & Visualize it on OpenERPv7",
+    'images':[''],
+    'init_xml':[],
+    'depends':['base'],
+    'data':[
+        'views/pfizer_view.xml',
+        'views/astrazenica_view.xml',
+        'views/sinopharm_view.xml',
+        'views/johnson_view.xml',
+        'views/covid_view.xml',
+        'views/omicron_view.xml',
+        'views/neutresentiment_view.xml',
+        'views/positifsentiment_view.xml',
+        'views/negatifsentiment_view.xml'
+    ],
+    'website':'https://ensah.ma',
+    'update_xml':[],
+    'js':[],
+    'qweb':[],
+    'css':[],
+    'demo':[],
+    'test':[],
+    'images':[],
+    'installable':True,
+    'auto_install':True
+}

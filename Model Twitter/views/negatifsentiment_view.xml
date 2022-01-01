@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<openerp> 
+  <data> 
+        
+    <menuitem id="bar" name="Twitter"/> 
+    
+		<record id="twitter_negatifstatistic_graph" model="ir.ui.view">
+			<field name="name">twitter.negatifstatistic.graph</field>
+			<field name="model">twitter.negatifstatistic</field>
+			<field name="arch" type="xml">
+				<graph string="Statistiques" type="bar">
+					<field name="vaccine"/>
+					<field name="effective" operator="+"/>
+				</graph>
+			</field>
+		</record>
+        <record model="ir.actions.act_window" id="action_negatif_stat_seq">
+			<field name="name">Negatif Sentiment</field>
+			<field name="res_model">twitter.negatifstatistic</field>
+			<field name="view_type">form</field> 
+			<field name="view_mode">graph</field>
+		</record>
+
+    <menuitem name="Comparing Vaccines" id="comparenegatif" parent="bar"/>
+    <menuitem name="Negatif Sentiments" id="nestatistic" parent="comparenegatif" action="action_negatif_stat_seq"/>
+ </data> 
+</openerp> 

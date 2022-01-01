@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<menuitem id="bar" name="Twitter"/> 
+		<record id="twitter_covid_form_view" model="ir.ui.view">
+            <field name="name">twitter.covid.form</field>
+            <field name="model">twitter.covid</field>
+			<field name="arch" type="xml">
+				<form string="covid" version="7.0">
+					<sheet>
+						<notebook>
+							<page string="covid Details">
+								<group>
+									<field name="tweet"/>
+									<field name="polarite"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="twitter.covid_tree">
+			<field name="name">twitter.covid.tree</field>
+			<field name="model">twitter.covid</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="covid list">
+					<field name="tweet"/>
+				    <field name="polarite"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="twitter_covidstatistic_graph" model="ir.ui.view">
+			<field name="name">twitter.covidstatistic.graph</field>
+			<field name="model">twitter.covidstatistic</field>
+			<field name="arch" type="xml">
+				<graph string="Statistiques" type="bar">
+					<field name="name" />
+					<field name="effective" operator="+"/>
+				</graph>
+			</field>
+		</record>
+        <record model="ir.actions.act_window" id="action_covid_seq">
+			<field name="name">Data</field>
+			<field name="res_model">twitter.covid</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+        <record model="ir.actions.act_window" id="action_covid_stat_seq">
+			<field name="name">Data</field>
+			<field name="res_model">twitter.covidstatistic</field>
+			<field name="view_mode">graph</field>
+		</record>
+        <menuitem name="Covid" id="covid" parent="bar"/>
+        <menuitem name="Data" id="coviddata" parent="covid" action="action_covid_seq"/>
+        <menuitem name="Statistics" id="covidstatistic" parent="covid" action="action_covid_stat_seq"/>
+	</data>
+</openerp>

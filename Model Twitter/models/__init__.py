@@ -1,0 +1,15 @@
+import model_pfizer
+import model_statistic
+import model_astrazenica
+import model_astrastatistic
+import model_sinopharm
+import model_sinostatistic
+import model_johnson
+import model_johnstatistic
+import model_covid
+import model_covidstatistic
+import model_omicron
+import model_omicronstatistic
+import model_neutrestatistic
+import model_positifstatistic
+import model_negatifstatistic

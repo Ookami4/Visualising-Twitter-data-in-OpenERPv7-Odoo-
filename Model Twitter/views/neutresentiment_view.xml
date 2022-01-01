@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<openerp> 
+  <data> 
+        
+    <menuitem id="bar" name="Twitter"/> 
+    
+		<record id="twitter_neutrestatistic_graph" model="ir.ui.view">
+			<field name="name">twitter.neutrestatistic.graph</field>
+			<field name="model">twitter.neutrestatistic</field>
+			<field name="arch" type="xml">
+				<graph string="Statistiques" type="bar">
+					<field name="vaccine"/>
+					<field name="effective" operator="+"/>
+				</graph>
+			</field>
+		</record>
+        <record model="ir.actions.act_window" id="action_neutre_stat_seq">
+			<field name="name">Neutre Sentiment</field>
+			<field name="res_model">twitter.neutrestatistic</field>
+			<field name="view_type">form</field> 
+			<field name="view_mode">graph</field>
+		</record>
+
+    <menuitem name="Comparing Vaccines" id="compare" parent="bar"/>
+    <menuitem name="Neutre Sentiments" id="nstatistic" parent="compare" action="action_neutre_stat_seq"/>
+ </data> 
+</openerp> 

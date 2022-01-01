@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<menuitem id="bar" name="Twitter"/> 
+		<record id="twitter_omicron_form_view" model="ir.ui.view">
+            <field name="name">twitter.omicron.form</field>
+            <field name="model">twitter.omicron</field>
+			<field name="arch" type="xml">
+				<form string="omicron" version="7.0">
+					<sheet>
+						<notebook>
+							<page string="omicron Details">
+								<group>
+									<field name="tweet"/>
+									<field name="polarite"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="twitter.omicron_tree">
+			<field name="name">twitter.omicron.tree</field>
+			<field name="model">twitter.omicron</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="pfizer list">
+					<field name="tweet"/>
+				    <field name="polarite"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="twitter_omicronstatistic_graph" model="ir.ui.view">
+			<field name="name">twitter.omicronstatistic.graph</field>
+			<field name="model">twitter.omicronstatistic</field>
+			<field name="arch" type="xml">
+				<graph string="Statistiques" type="bar">
+					<field name="name" />
+					<field name="effective" operator="+"/>
+				</graph>
+			</field>
+		</record>
+        <record model="ir.actions.act_window" id="action_omicron_seq">
+			<field name="name">Data</field>
+			<field name="res_model">twitter.omicron</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+        <record model="ir.actions.act_window" id="action_omicron_stat_seq">
+			<field name="name">Data</field>
+			<field name="res_model">twitter.omicronstatistic</field>
+			<field name="view_mode">graph</field>
+		</record>
+        <menuitem name="Covid Omicron" id="omicron" parent="bar"/>
+        <menuitem name="Data" id="omicrondata" parent="omicron" action="action_omicron_seq"/>
+        <menuitem name="Statistics" id="omicronstatistic" parent="omicron" action="action_omicron_stat_seq"/>
+	</data>
+</openerp>
